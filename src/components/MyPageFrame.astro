@@ -1,0 +1,27 @@
+---
+import Default from '@astrojs/starlight/components/PageFrame.astro';
+import CookieConsent from "./CookieConsent.astro";
+---
+
+<Default>
+    <slot name="header"  slot="header" />
+    <slot name="sidebar" slot="sidebar" />
+    <slot />
+
+    <CookieConsent />
+
+    <slot name="footer" slot="footer" />
+
+    <footer class="my-footer">
+        © 2025 · Esto es un proyecto de - alvacode - <br>
+        <a href="/politica-privacidad"> Política de privacidad</a> | <a href="/aviso-legal"> Aviso legal</a> | <a href="#" data-cc="show-preferencesModal"> Gestión de cookies </a>
+    </footer>
+</Default>
+
+<style>
+    .my-footer {
+        text-align: center;
+        font-size: .875rem;
+        opacity: .6;
+    }
+</style>

@@ -1,0 +1,85 @@
+---
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
+---
+
+<script>
+    import { run } from 'vanilla-cookieconsent';
+
+    run({
+        guiOptions: {
+            consentModal: {
+                layout: 'box inline',
+                position: 'bottom left',
+            },
+            preferencesModal: {
+                layout: 'box',
+                position: 'right',
+                equalWeightButtons: true,
+                flipButtons: false,
+            },
+        },
+        categories: {
+            necessary: {
+                readOnly: true,
+            },
+            functionality: {},
+            analytics: {
+                services: {
+                    ga4: {
+                        label:
+                            '<a href="https://marketingplatform.google.com/about/analytics/terms/us/" target="_blank">Google Analytics</a>',
+                        onAccept: () => {
+                            console.log('ga4 accepted');
+                        },
+                        onReject: () => {
+                            console.log('ga4 rejected');
+                        },
+                        cookies: [
+                            {
+                                name: /^_ga/,
+                            },
+                        ],
+                    },
+                },
+            },
+        },
+        language: {
+            default: 'es',
+            autoDetect: 'browser',
+            translations: {
+                es: {
+                    consentModal: {
+                        title: "Utilizamos cookies para mejorar tu experiencia",
+                        description:
+                            'Utilizamos cookies para mejorar tu experiencia. Puedes cambiar tus preferencias en cualquier momento.',
+                        acceptAllBtn: 'Aceptar todo',
+                        acceptNecessaryBtn: 'Rechazar todo',
+                        showPreferencesBtn: 'Gestionar preferencias',
+                    },
+                    preferencesModal: {
+                        title: 'Gestión de preferencias',
+                        acceptAllBtn: 'Aceptar todo',
+                        acceptNecessaryBtn: 'Rechazar todo',
+                        savePreferencesBtn: 'Guardar preferencias',
+                        closeIconLabel: 'Cerrar',
+                        serviceCounterLabel: 'Servicio|Servicios',
+                        sections: [
+                            {
+                                title:
+                                    'Cookies estrictamente necesarias <span class="pm__badge">Siempre habilitadas</span>',
+                                description:
+                                    '',
+                                linkedCategory: 'necessary',
+                            },
+                            {
+                                title: 'Cookies de analítica',
+                                description:
+                                    '',
+                                linkedCategory: 'analytics',
+                            },
+                        ],
+                    },
+                },
+            },
+        }});
+</script>
