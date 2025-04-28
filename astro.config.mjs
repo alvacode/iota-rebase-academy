@@ -5,23 +5,25 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://alvacode.github.io',
-    base: 'iota-rebase-course',
+    base: 'iota-rebase-academy',
     integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'IOTA Rebase Academy',
+			defaultLocale: 'root',
+			locales: {
+				root: {
+					label: 'Español',
+					lang: 'es',
+				},
+			},
+			social: [{ icon: 'twitter', label: 'Twitter', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Introducción',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: '¿Qué es IOTA Rebase?', slug: 'intro/que-es-iota-rebase' },
 					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
+				}
 			],
 		}),
 	],
